@@ -1,0 +1,43 @@
+﻿@model baumanaUn.Models.Payment
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>
+    @(Model.Id != 0 ? "Спасибо за Ваш заказ. Вы можете произвести оплату сейчас или позже. Для этого запишите номер заказа (резерв 2 банковских дня)." :
+        "Введите номер заказа, который Вы получили при резервировании места на обучение. Затем введите данные карты и нажмите: Оплатить")
+</h3>
+
+
+<p></p>
+
+@using (Html.BeginForm("PaymentSave", "Lesson"))
+{
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Id)
+        @Html.TextBoxFor(m => m.Id, new {@class = "form-control"})
+    </div>
+
+    <div>
+        <b>Введите номер кредитной карты:</b><br>
+        <input type="text" class = "form-control">
+    </div>
+    <p></p>
+
+    <div>
+        <b>Введите срок действия:</b><br>
+        <input type="text" class="form-control">
+    </div>
+    <p></p>
+
+    <div>
+        <b>Введите CVV2-код:</b><br>
+        <input type="password" class="form-control">
+    </div>
+    <p></p>
+
+
+    <button type="submit" class="btn btn-warning">Оплатить</button>
+}

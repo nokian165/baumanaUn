@@ -1,0 +1,33 @@
+﻿@model baumanaUn.ViewModels.OrderFormViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>
+    Форма подачи заявки на обучение
+</h3>
+<p></p>
+
+@using (Html.BeginForm("OrderSave", "Lesson"))
+{
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Orders.ClientName)
+        @Html.TextBoxFor(m => m.Orders.ClientName, new {@class = "form-control"})
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Orders.Phone)
+        @Html.TextBoxFor(m => m.Orders.Phone, new {@class = "form-control"})
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Orders.Email)
+        @Html.TextBoxFor(m => m.Orders.Email, new {@class = "form-control"})
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Orders.GradeId)
+        @Html.DropDownListFor(m => m.Orders.GradeId, new SelectList(Model.Grades.Select(b => b.Course).Distinct(), "Id", "CourseName"), "Не выбрано", new {@class = "form-control"})
+    </div>
+
+    <button type="submit" class="btn btn-warning">Сохранить</button>
+}

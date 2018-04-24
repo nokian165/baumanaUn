@@ -1,0 +1,26 @@
+﻿@model IEnumerable<baumanaUn.Models.Payment>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p></p>
+<table id="payment" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th class="text-center">Id</th>
+            <th class="text-center">PaymentStatus</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var names in Model)
+        {
+            <tr>
+
+                <td class="vert-align text-center">@names.Id</td>
+                <td class="vert-align text-center">@names.PaymentStatus</td>
+
+            </tr>
+        }
+    </tbody>
+</table>

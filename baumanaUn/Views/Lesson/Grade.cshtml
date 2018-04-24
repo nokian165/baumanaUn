@@ -1,0 +1,35 @@
+﻿@model IEnumerable<baumanaUn.Models.Grade>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p></p>
+<table id="grade" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th class="text-center">Id</th>
+            <th class="text-center">Location</th>
+            <th class="text-center">DateTimeStartCourse</th>
+            <th class="text-center">CourseId</th>
+            <th class="text-center">SeatInStock</th>
+            <th class="text-center">SeatAvailable</th>
+            <th class="text-center">SeatReserve</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var names in Model)
+        {
+            <tr>
+
+                <td class="vert-align text-center">@names.Id</td>
+                <td class="vert-align text-center">@names.Location</td>
+                <td class="vert-align text-center">@names.DateTimeStartCourse</td>
+                <td class="vert-align text-center">@names.CourseId</td>
+                <td class="vert-align text-center">@names.SeatInStock</td>
+                <td class="vert-align text-center">@names.SeatAvailable</td>
+                <td class="vert-align text-center">@names.SeatReserve</td>
+            </tr>
+        }
+    </tbody>
+</table>
